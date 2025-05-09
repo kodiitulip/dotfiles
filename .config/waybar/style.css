@@ -1,0 +1,78 @@
+* {
+  font-family: "FiraCode Nerd Font Mono";
+}
+/* 
+#custom-updates {
+transition: none;
+background: #292c3c;
+color: #bd93f9;
+border-bottom: 3px;
+border-style: solid;
+border-color: #bd93f9;
+transition: 0.3s;
+}
+
+:hover {
+  color: #292c3c;
+  background: #bd93f9;
+
+}
+*/
+window#waybar {
+	background-color:transparent;
+}
+
+.modules-left *, .modules-center *, .modules-right * {
+	margin: 4px 8px 0 8px;
+}
+
+
+widget, widget button {
+	color: #bd93f9;
+}
+
+widget button:hover {
+  color: #292c3c;
+  background-color: #bd93f9;
+}
+
+widget > box.module, widget > label.module {
+	border-radius: 8px;
+	background-color: #292c3c;
+	padding: 0 8px;
+	border: 1px solid currentColor;
+}
+
+#pulseaudio {
+	min-width: 24px;
+}
+
+button {
+	padding: 4px;
+	margin: 0;
+	min-height: 0;
+	min-width: 0;
+	outline: none;
+	box-shadow: none;
+	border: none;
+}
+
+button:hover {
+	background-image: none;
+}
+
+widget button {
+  color: #bd93f9;
+  background-color: #292c3c;
+	border-radius: calc(1px * 9999)
+}
+
+widget button:hover {
+	color: #292c3c;
+	background: #bd93f9;
+	-gtk-outline-radius: 0;
+}
+
+widget#workspaces {
+  padding: 0;
+}

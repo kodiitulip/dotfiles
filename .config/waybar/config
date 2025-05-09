@@ -1,0 +1,29 @@
+{
+  "layer": "top",
+  "margin-top": 0,
+  "margin-bottom": 0,
+  "margin-left": 0,
+  "margin-right": 0,
+  "spacing": 0,
+  "include": [
+    "~/.config/waybar/modules.jsonc"
+  ],
+  "modules-left": [
+    "niri/workspaces",
+    "custom/media",
+    "cpu",
+    "memory"
+  ],
+  "modules-center": [
+    "niri/window"
+  ],
+  "modules-right": [
+    "custom/updates",
+    "backlight",
+    "pulseaudio",
+    "battery",
+    "network",
+    "custom/swayidle",
+    "clock"
+  ]
+}

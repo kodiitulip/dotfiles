@@ -121,8 +121,6 @@ most() {
 
 AURHELPER="paru"
 
-alias paru='paru --layout=reverse'
-
 pkglist() {
   if [[ $# -eq 0 ]]; then
     pacman -Qq | fzf --preview '$AURHELPER -Qi {}' --layout=reverse

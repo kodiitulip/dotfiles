@@ -24,6 +24,7 @@ export PATH="$HOME/.npm-global/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.go/bin:$PATH"
 export PATH="$HOME/.spicetify:$PATH"
+export PATH="$HOME/.local/share/JetBrains/Toolbox/scripts:$PATH"
 
 # ---------------------------------------------------------------------------- #
 #                                 ENV VARIABLES                                #
@@ -99,6 +100,8 @@ alias ly='/usr/bin/lazygit --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 # ---------------------------------------------------------------------------- #
 
 alias e="exit"
+alias c="clear"
+alias cf="clear & fastfetch"
 alias ls="eza --icons --group-directories-first"
 alias ll="eza -l --icons --group-directories-first"
 alias lt="eza --tree --level=1 --icons --group-directories-first"
@@ -108,120 +111,23 @@ alias clock="peaclock"
 alias zshrc="$EDITOR $HOME/.zshrc"
 alias reload="source $HOME/.zshrc"
 
-ff() {
-  if [[ $XDG_CURRENT_DESKTOP == 'Hyprland' ]]; then
-    fastfetch --config $HOME/.config/fastfetch/hyprland.jsonc
-  elif [[ $XDG_CURRENT_DESKTOP == 'GNOME' ]]; then
-    fastfetch --config $HOME/.config/fastfetch/gnome.jsonc
-  elif [[ $XDG_CURRENT_DESKTOP == 'niri' ]]; then
-    fastfetch --config $HOME/.config/fastfetch/niri.jsonc
-  fi
-}
-
-log-out() {
-  if [[ $XDG_CURRENT_DESKTOP == "Hyprland" ]]; then
-    echo "Session found: Hyprland. Logging out..."
-    sleep 2
-    hyprctl dispatch exit
-  elif [[ $XDG_CURRENT_DESKTOP == "GNOME" ]]; then
-    echo "Session found: GNOME. Logging out..."
-    sleep 2
-    gnome-session-quit --no-prompt
-  elif [[ $XDG_CURRENT_DESKTOP == "niri" ]]; then
-    echo "Session found: Niri. Logging out..."
-    sleep 2
-    pkill niri
-  else
-    echo "Unknown session: $XDG_CURRENT_DESKTOP."
-  fi
-}
-
 most() {
   history 1 | awk '{for (i=2; i<=NF; i++) {if ($i=="sudo" && (i+1)<=NF) CMD[$(i+1)]++; else if (i==2) CMD[$i]++; count++}} END {for (a in CMD) print CMD[a], CMD[a]/count*100 "%", a}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl | head -n10
-}
-
-change-wallpaper() {
-
-  wallpaper_dir="$HOME/Pictures/Wallpapers"
-  export GUM_CHOOSE_HEADER_FOREGROUND="#d8dadd"
-  export GUM_CHOOSE_SELECTED_FOREGROUND="#758A9B"
-  export GUM_CHOOSE_CURSOR_FOREGROUND="#758A9B"
-  if [ ! -d $wallpaper_dir ]; then
-    echo "[ERROR] ~/Pictures/Wallpapers does not exist. Place images into this directory."
-    return 1
-  fi
-  deps=(imagemagick gum fd)
-  missing_deps=()
-  for dep in "${deps[@]}"; do
-    if ! is_installed "$dep"; then
-      missing_deps+=("$dep")
-    fi
-  done
-  if [[ -n $missing_deps ]]; then
-    echo "[ERROR] missing dependencies: ${missing_deps[*]}"
-    return 1
-  fi
-
-  images=$(fd . --base-directory $wallpaper_dir -e jpg -e jpeg -e png -e gif -e bmp -e tiff -e tif -e webp -e ico -e jif -e psd -e dds -e heif -e heic)
-  if [ -z "$images" ]; then
-    echo "[ERROR] No image file found in ~/Pictures/Wallpapers."
-    return 1
-  fi
-  image="$wallpaper_dir/$(echo "$images" | gum choose --header 'Choose from ~/Pictures/Wallpapers: ')"
-  image_name=$(basename -- "$image")
-  extension="${image_name##*.}"
-
-  if [[ $XDG_CURRENT_DESKTOP == "niri" ]]; then
-    mode=$(echo "stretch\nfill\nfit\ncenter\ntile" | gum choose --header "Select wallpaper mode: ")
-    if [[ "$image" == "$wallpaper_dir/" || -z $mode ]]; then
-      echo "[ERROR] No image or mode selected."
-      return 1
-    fi
-    new_cmd="\"swaybg\" \"-i\" \"$image\" \"-m\" \"$mode\" \"-c\" \"000000\""
-    if ! grep -q "spawn-at-startup \"swaybg\"" "$NIRICONF/niri/config.kdl"; then
-      sed -i "/\/\/ startup processes/a spawn-at-startup $new_cmd" "$NIRICONF/niri/config.kdl"
-    else
-      sed -i "s|^spawn-at-startup \"swaybg.*|spawn-at-startup $new_cmd|" "$NIRICONF/niri/config.kdl"
-    fi
-    echo "Selected: $(basename $image)"
-    echo "Mode: $mode"
-    pkill swaybg
-    (eval $new_cmd &>/dev/null &)
-    echo "OK!"
-
-  elif [[ $XDG_CURRENT_DESKTOP == "GNOME" ]]; then
-    mode=$(echo "wallpaper\ncentered\nscaled\nstretched\nzoom\nspanned" | gum choose --header "Select wallpaper mode: ")
-    if [[ "$image" == "$wallpaper_dir/" || -z $mode ]]; then
-      echo "[ERROR] No image or mode selected."
-      return 1
-    fi
-    gsettings set org.gnome.desktop.background picture-uri "file://$image"
-    gsettings set org.gnome.desktop.background picture-uri-dark "file://$image"
-    gsettings set org.gnome.desktop.background picture-options $mode
-    gsettings set org.gnome.desktop.background primary-color "#000000"
-    echo "Selected: $(basename $image)"
-    echo "Mode: $mode"
-    echo "OK!"
-
-  else
-    echo "[ERROR] Unsupport session: $XDG_CURRENT_DESKTOP."
-    return 1
-  fi
 }
 
 # ---------------------------------------------------------------------------- #
 #                                    PACMAN                                    #
 # ---------------------------------------------------------------------------- #
 
-alias inst="yay yay"
-alias uninst="yay -Rns"
-alias up="yay -Syu"
+AURHELPER="paru"
+
+alias paru='paru --layout=reverse'
 
 pkglist() {
   if [[ $# -eq 0 ]]; then
-    pacman -Qq | fzf --preview 'yay -Qi {}' --layout=reverse
+    pacman -Qq | fzf --preview '$AURHELPER -Qi {}' --layout=reverse
   elif [[ $# -gt 0 ]] && [[ $1 == '-e' ]]; then
-    pacman -Qqe | fzf --preview 'yay -Qi {}' --layout=reverse
+    pacman -Qqe | fzf --preview '"$AURHELPER" -Qi {}' --layout=reverse
   else
     echo "[ERROR] Unknown argument: $1"
     return 1
@@ -243,64 +149,13 @@ pkgsearch() {
   if [[ $# -eq 0 ]]; then
     pacman -Slq | fzf --preview 'pacman -Si {}' --layout=reverse --bind 'enter:execute(sudo pacman -S {})'
   elif [[ $# -gt 0 ]] && [[ $1 == '-a' ]]; then
-    yay -Slqa | fzf --preview 'yay -Si {}' --layout=reverse --bind 'enter:execute(yay -S {})'
+    "$AURHELPER" -Slqa | fzf --preview '"$AURHELPER" -Si {}' --layout=reverse --bind 'enter:execute("$AURHELPER" -S {})'
   else
     echo "[ERROR] Unknown argument: $1"
     return 1
   fi
 }
 
-cleanup() {
-  orphans=$(pacman -Qtdq)
-  if [[ -n $orphans ]]; then
-    printf "[INFO] Removing orphan packages: \n"
-    echo $orphans | xargs printf "   - %s\n"
-    printf "[INFO] Proceed? [Y/n]: "
-    read choice
-    choice=${choice:-Y}
-    choice=${choice:-Y}
-    if [[ $choice =~ ^[Yy]$ ]]; then
-      echo "$orphans" | xargs sudo pacman -Rns --noconfirm
-      if [[ $? -eq 0 ]]; then
-        printf "[INFO] Removal completed\n"
-      fi
-    fi
-  else
-    printf "[INFO] No orphan packages\n"
-  fi
-  pacman_cache=$(echo $(paccache -d) | grep -oP 'disk space saved: \K[0-9.]+ [A-Za-z]+')
-  if [[ -n $pacman_cache ]]; then
-    printf "[INFO] Pacman cache found. Save $pacman_cache? [Y/n]: "
-    read choice
-    choice=${choice:-Y}
-    if [[ $choice =~ ^[Yy]$ ]]; then
-      sudo paccache -rq
-      if [[ $? -eq 0 ]]; then
-        printf "[INFO] Pacman cache removed\n"
-      fi
-    fi
-  else
-    printf "[INFO] No pacman cache\n"
-  fi
-  yay_cache="$HOME/.cache/yay"
-  lookup_result=$(fd --absolute-path --no-ignore '\.tar.gz$|\.deb$' $yay_cache | grep -v 'pkg.tar.zst')
-  if [[ -n $lookup_result ]]; then
-    printf "[INFO] Removing AUR cache: \n"
-    echo $lookup_result | xargs printf "   - %s\n"
-    printf "[INFO] Proceed? [Y/n]: "
-    read choice
-    choice=${choice:-Y}
-    if [[ $choice =~ ^[Yy]$ ]]; then
-      rm $(fd --absolute-path --no-ignore '\.tar\.gz$|\.deb$' $yay_cache | grep -v 'pkg.tar.zst')
-      if [[ $? -eq 0 ]]; then
-        printf "[INFO] Removal completed\n"
-      fi
-    fi
-  else
-    printf "[INFO] No AUR cache\n"
-  fi
-  printf "[INFO] OK\n"
-}
 
 # ---------------------------------------------------------------------------- #
 #                              SHELL INTEGRATIONS                              #
@@ -315,3 +170,14 @@ fi
 if is_installed oh-my-posh; then
   eval "$(oh-my-posh init zsh -c /home/kodie/.config/omp/catppuccin.omp.json)"
 fi 
+
+if is_installed yazi; then
+  function y() {
+    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+    yazi "$@" --cwd-file="$tmp"
+    if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+      builtin cd -- "$cwd"
+    fi
+    rm -f -- "$tmp"
+  }
+fi

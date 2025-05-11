@@ -7,6 +7,14 @@
     "lavender": "#B4BEFE",
     "blue": "#89B4FA"
   },
+  "secondary_prompt": {
+    "template": " ",
+    "foreground": "p:pink"
+  },
+  "transient_prompt": {
+    "template": " ",
+    "foreground": "p:pink"
+  },
   "blocks": [
     {
       "alignment": "left",
@@ -20,13 +28,13 @@
         {
           "foreground": "p:blue",
           "style": "plain",
-          "template": "{{ .UserName }}@{{ .HostName }} ",
+          "template": "{{ .UserName }} ",
           "type": "session"
         },
         {
           "foreground": "p:pink",
           "properties": {
-            "folder_icon": "..\ue5fe..",
+            "folder_icon": "\ue5fe",
             "home_icon": "~",
             "style": "agnoster_short"
           },
@@ -59,7 +67,8 @@
           "type": "text"
         }
       ],
-      "type": "prompt"
+      "type": "prompt",
+      "newline": true
     }
   ],
   "final_space": true,

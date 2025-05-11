@@ -122,8 +122,6 @@ most() {
 AURHELPER="paru"
 
 alias pacman="sudo pacman"
-alias paru="paru --skipreview --topdown"
-alias yay="yay --skipreview --topdown"
 
 pkglist() {
   if [[ $# -eq 0 ]]; then

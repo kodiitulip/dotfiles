@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/jesseduffield/lazygit/master/schema/config.json
+os:
+  edit: "/usr/bin/nvim {{filename}}"
+  editAtLine: "/usr/bin/nvim {{filename}} +{{line}}"
+  editInTerminal: true
+  openDirInEditor: "/usr/bin/nvim"
+
+promptToReturnFromSubprocess: false

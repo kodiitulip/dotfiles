@@ -25,6 +25,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.go/bin:$PATH"
 export PATH="$HOME/.spicetify:$PATH"
 export PATH="$HOME/.local/share/JetBrains/Toolbox/scripts:$PATH"
+export PATH="$HOME/.bun/bin:$PATH"
 
 # ---------------------------------------------------------------------------- #
 #                                 ENV VARIABLES                                #
@@ -32,6 +33,7 @@ export PATH="$HOME/.local/share/JetBrains/Toolbox/scripts:$PATH"
 
 export VISUAL=/usr/bin/nvim
 export EDITOR="$VISUAL"
+export MOZ_ENABLE_WAYLAND=1
 
 # ---------------------------------------------------------------------------- #
 #                                     ZINIT                                    #

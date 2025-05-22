@@ -180,10 +180,10 @@ fi
 if is_installed zoxide; then
   eval "$(zoxide init zsh)"
 fi
+export OMP_CONFIG=$HOME/.config/omp/rose-pine.omp.toml
 if is_installed oh-my-posh; then
-  eval "$(oh-my-posh init zsh -c /home/kodie/.config/omp/rose-pine.omp.toml)"
+  eval "$(oh-my-posh init zsh -c $OMP_CONFIG)"
 fi 
-
 if is_installed yazi; then
   function y() {
     local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd

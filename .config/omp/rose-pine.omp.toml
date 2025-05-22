@@ -4,15 +4,31 @@ final_space               = true
 shell_integration         = true
 version                   = 3
 
-palette = { os = "#61AFEF", pink = "#F5C2E7" }
+[palette]
+  base           = "#232136"
+  foam           = "#9ccfd8"
+  gold           = "#f6c177"
+  highlight_high = "#56526e"
+  highlight_low  = "#2a283e"
+  highlight_med  = "#44415a"
+  iris           = "#c4a7e7"
+  love           = "#eb6f92"
+  muted          = "#6e6a86"
+  overlay        = "#393552"
+  pine           = "#3e8fb0"
+  rose           = "#ea9a97"
+  subtle         = "#908caa"
+  surface        = "#2a273f"
+  text           = "#e0def4"
 
 [secondary_prompt]
-  foreground = "p:pink"
+  foreground = "p:pine"
   template   = " "
 
 [transient_prompt]
-  foreground = "p:pink"
-  template   = " "
+  foreground           = "p:pine"
+  foreground_templates = ["{{ if gt .Code 0 }}p:rose{{ else }}p:pine{{ end }}"]
+  template             = " "
 
 [[blocks]]
   alignment = "left"
@@ -20,36 +36,136 @@ palette = { os = "#61AFEF", pink = "#F5C2E7" }
   type      = "prompt"
 
   [[blocks.segments]]
-    style    = "plain"
-    template = "{{.Icon}} "
-    type     = "os"
+    foreground = "p:highlight_med"
+    style      = "plain"
+    template   = "<== "
+    type       = "text"
 
   [[blocks.segments]]
-    foreground = "p:blue"
+    foreground = "p:pine"
+    style      = "plain"
+    template   = "{{.Icon}} "
+    type       = "os"
+
+  [[blocks.segments]]
+    foreground = "p:pine"
     style      = "plain"
     template   = "{{ .UserName }} "
     type       = "session"
 
   [[blocks.segments]]
-    foreground = "p:os"
+    foreground = "p:love"
     properties = { folder_icon = "..", home_icon = "~", style = "agnoster_short", max_depth = 2 }
     style      = "plain"
     template   = "{{ .Path }} "
     type       = "path"
 
   [[blocks.segments]]
-    foreground = "p:lavender"
+    foreground = "p:pine"
     style      = "plain"
-    template   = "{{ .HEAD }} "
+    template   = "{{ .UpstreamIcon }}{{ .HEAD }} "
     type       = "git"
 
     [blocks.segments.properties]
-      branch_icon          = " "
-      cherry_pick_icon     = " "
-      commit_icon          = " "
-      fetch_stash_count    = true
-      fetch_status         = true
-      fetch_upstream_icon  = false
-      fetch_worktree_count = true
-      mapped_branches      = { "feat/*" = " ", "bug/*" = " " }
-      merge_icon           = " "
+      branch_icon     = "  "
+      mapped_branches = { "feat/*" = "  ", "bug/*" = "  " }
+      merge_icon      = "  "
+
+[[blocks]]
+  alignment = "right"
+  filler    = "<p:highlight_med>=</>"
+  type      = "prompt"
+
+  [[blocks.segments]]
+    foreground = "p:rose"
+    properties = { fetch_version = false, extensions = [
+      "components.json",
+      "**/*.tsx",
+      "**/*.jsx",
+    ], folders = [
+      "components",
+    ] }
+    style = "plain"
+    template = " "
+    type = "react"
+
+  [[blocks.segments]]
+    foreground = "p:rose"
+    properties = { fetch_version = false, extensions = ["package-lock.json"] }
+    style      = "plain"
+    template   = " "
+    type       = "npm"
+
+  [[blocks.segments]]
+    foreground = "p:rose"
+    properties = { fetch_version = false, extensions = ["pnpm-lock.yaml"] }
+    style      = "plain"
+    template   = " "
+    type       = "pnpm"
+
+  [[blocks.segments]]
+    foreground = "p:rose"
+    properties = { fetch_version = false, extensions = ["yarn.lock"] }
+    style      = "plain"
+    template   = " "
+    type       = "yarn"
+
+  [[blocks.segments]]
+    foreground = "p:rose"
+    properties = { cache_duration = "24h" }
+    style      = "plain"
+    template   = "{{ if not .Segments.Bun.Full }}  {{ .Full }}{{ end }}"
+    type       = "node"
+
+  [[blocks.segments]]
+    foreground = "p:rose"
+    properties = { cache_duration = "24h" }
+    style      = "plain"
+    template   = "  {{ .Full }}"
+    type       = "bun"
+
+  [[blocks.segments]]
+    foreground = "p:rose"
+    properties = { cache_duration = "24h" }
+    style      = "plain"
+    template   = "  {{ .Full }}"
+    type       = "java"
+
+  [[blocks.segments]]
+    display_mode = "context"
+    foreground   = "p:rose"
+    style        = "plain"
+    template     = "  ({{ if .Venv }}{{ .Venv }} {{ end }}){{ .Full }}"
+    type         = "python"
+
+  [[blocks.segments]]
+    foreground = "p:pine"
+    style      = "plain"
+    type       = "time"
+
+    [blocks.segments.properties]
+      time_format = "15:04"
+
+  [[blocks.segments]]
+    foreground = "p:highlight_med"
+    style      = "plain"
+    template   = "=>"
+    type       = "text"
+
+[[blocks]]
+  alignment = "left"
+  newline   = true
+  type      = "prompt"
+
+  [[blocks.segments]]
+    foreground = "p:pine"
+    foreground_templates = [
+      "{{ if gt .Code 0 }}p:rose{{ else }}p:pine{{ end }}",
+    ]
+    style = "plain"
+    template = ""
+    type = "text"
+
+    # [[blocks]]
+    #   alignment = "right"
+    #   type      = "rprompt"

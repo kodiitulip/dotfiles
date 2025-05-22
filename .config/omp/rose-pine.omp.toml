@@ -1,0 +1,55 @@
+"$schema"                 = "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json"
+enable_cursor_positioning = true
+final_space               = true
+shell_integration         = true
+version                   = 3
+
+palette = { os = "#61AFEF", pink = "#F5C2E7" }
+
+[secondary_prompt]
+  foreground = "p:pink"
+  template   = " "
+
+[transient_prompt]
+  foreground = "p:pink"
+  template   = " "
+
+[[blocks]]
+  alignment = "left"
+  newline   = true
+  type      = "prompt"
+
+  [[blocks.segments]]
+    style    = "plain"
+    template = "{{.Icon}} "
+    type     = "os"
+
+  [[blocks.segments]]
+    foreground = "p:blue"
+    style      = "plain"
+    template   = "{{ .UserName }} "
+    type       = "session"
+
+  [[blocks.segments]]
+    foreground = "p:os"
+    properties = { folder_icon = "..", home_icon = "~", style = "agnoster_short", max_depth = 2 }
+    style      = "plain"
+    template   = "{{ .Path }} "
+    type       = "path"
+
+  [[blocks.segments]]
+    foreground = "p:lavender"
+    style      = "plain"
+    template   = "{{ .HEAD }} "
+    type       = "git"
+
+    [blocks.segments.properties]
+      branch_icon          = " "
+      cherry_pick_icon     = " "
+      commit_icon          = " "
+      fetch_stash_count    = true
+      fetch_status         = true
+      fetch_upstream_icon  = false
+      fetch_worktree_count = true
+      mapped_branches      = { "feat/*" = " ", "bug/*" = " " }
+      merge_icon           = " "

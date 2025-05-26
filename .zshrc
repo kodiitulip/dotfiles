@@ -194,3 +194,5 @@ if is_installed yazi; then
     rm -f -- "$tmp"
   }
 fi
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"

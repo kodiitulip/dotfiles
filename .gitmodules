@@ -7,3 +7,6 @@
 [submodule ".config/yazi"]
 	path = .config/yazi
 	url = https://github.com/kodiitulip/my-yazi-config
+[submodule ".config/sddm/themes/sddm-rose-pine"]
+	path = .config/sddm/themes/sddm-rose-pine
+	url = https://github.com/lwndhrst/sddm-rose-pine

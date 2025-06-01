@@ -73,12 +73,12 @@ setopt hist_find_no_dups
 
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' menu no
-export FZF_DEFAULT_OPTS="
-  --color=fg:#d8dadd,bg:-1,hl:#B7D4ED
-  --color=fg+:#d8dadd,bg+:-1,hl+:#BCC2C6
-  --color=info:#B2BCC4,prompt:#758A9B,pointer:#B7D4ED
-  --color=marker:#BCC2C6,spinner:#B7D4ED,header:#949EA3
-  --layout=reverse"
+# export FZF_DEFAULT_OPTS="
+#   --color=fg:#d8dadd,bg:-1,hl:#B7D4ED
+#   --color=fg+:#d8dadd,bg+:-1,hl+:#BCC2C6
+#   --color=info:#B2BCC4,prompt:#758A9B,pointer:#B7D4ED
+#   --color=marker:#BCC2C6,spinner:#B7D4ED,header:#949EA3
+#   --layout=reverse"
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza --icons --group-directories-first $realpath'
 zstyle ':fzf-tab:*' use-fzf-default-opts yes
 bindkey "^[[H" beginning-of-line
@@ -100,6 +100,7 @@ alias gcl="git clone"
 if is_installed git-extras; then
   source /usr/share/doc/git-extras/git-extras-completion.zsh
 fi
+source $HOME/.config/zsh/completions/supabase.zsh
 alias dotfiles='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 alias ly='/usr/bin/lazygit --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 

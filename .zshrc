@@ -26,12 +26,6 @@ export PATH="$HOME/.go/bin:$PATH"
 export PATH="$HOME/.spicetify:$PATH"
 export PATH="$HOME/.local/share/JetBrains/Toolbox/scripts:$PATH"
 export PATH="$HOME/.bun/bin:$PATH"
-export FZF_DEFAULT_OPTS="
-	--color=fg:#908caa,bg:#232136,hl:#ea9a97
-	--color=fg+:#e0def4,bg+:#393552,hl+:#ea9a97
-	--color=border:#44415a,header:#3e8fb0,gutter:#232136
-	--color=spinner:#f6c177,info:#9ccfd8
-	--color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa"
 
 # ---------------------------------------------------------------------------- #
 #                                 ENV VARIABLES                                #
@@ -73,12 +67,12 @@ setopt hist_find_no_dups
 
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' menu no
-# export FZF_DEFAULT_OPTS="
-#   --color=fg:#d8dadd,bg:-1,hl:#B7D4ED
-#   --color=fg+:#d8dadd,bg+:-1,hl+:#BCC2C6
-#   --color=info:#B2BCC4,prompt:#758A9B,pointer:#B7D4ED
-#   --color=marker:#BCC2C6,spinner:#B7D4ED,header:#949EA3
-#   --layout=reverse"
+export FZF_DEFAULT_OPTS="
+	--color=fg:#908caa,bg:#232136,hl:#ea9a97
+	--color=fg+:#e0def4,bg+:#393552,hl+:#ea9a97
+	--color=border:#44415a,header:#3e8fb0,gutter:#232136
+	--color=spinner:#f6c177,info:#9ccfd8
+	--color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa"
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza --icons --group-directories-first $realpath'
 zstyle ':fzf-tab:*' use-fzf-default-opts yes
 bindkey "^[[H" beginning-of-line
@@ -97,9 +91,7 @@ alias gb="git branch"
 alias gsw="git switch"
 alias gd="git diff"
 alias gcl="git clone"
-if is_installed git-extras; then
-  source /usr/share/doc/git-extras/git-extras-completion.zsh
-fi
+source /usr/share/doc/git-extras/git-extras-completion.zsh
 source $HOME/.config/zsh/completions/supabase.zsh
 alias dotfiles='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 alias ly='/usr/bin/lazygit --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
@@ -175,25 +167,16 @@ pkgsearch() {
 #                              SHELL INTEGRATIONS                              #
 # ---------------------------------------------------------------------------- #
 
-if is_installed fzf; then
-  eval "$(fzf --zsh)"
-fi
-if is_installed zoxide; then
-  eval "$(zoxide init zsh)"
-fi
+eval "$(fzf --zsh)"
+eval "$(zoxide init zsh)"
 export OMP_CONFIG=$HOME/.config/omp/rose-pine.omp.toml
-if is_installed oh-my-posh; then
-  eval "$(oh-my-posh init zsh -c $OMP_CONFIG)"
-fi 
-if is_installed yazi; then
-  function y() {
-    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-    yazi "$@" --cwd-file="$tmp"
-    if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-      builtin cd -- "$cwd"
-    fi
-    rm -f -- "$tmp"
-  }
-fi
-
+eval "$(oh-my-posh init zsh -c $OMP_CONFIG)"
+function y() {
+  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+  yazi "$@" --cwd-file="$tmp"
+  if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+    builtin cd -- "$cwd"
+  fi
+  rm -f -- "$tmp"
+}
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"

@@ -93,6 +93,7 @@ alias gd="git diff"
 alias gcl="git clone"
 source /usr/share/doc/git-extras/git-extras-completion.zsh
 source $HOME/.config/zsh/completions/supabase.zsh
+source $HOME/.config/zsh/completions/uv.zsh
 alias dotfiles='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 alias ly='/usr/bin/lazygit --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 
@@ -111,6 +112,13 @@ alias wifi="nmtui connect"
 alias clock="peaclock"
 alias zshrc="$EDITOR $HOME/.zshrc"
 alias reload="source $HOME/.zshrc"
+alias gw="./gradlew"
+alias cr="cargo run"
+alias crq="cr --quiet"
+alias cb="cargo build"
+alias cbq="cb --quiet"
+alias ct="cargo test"
+alias ctq="ct --quiet"
 alias ..="z .."
 alias ...="z ../.."
 alias 3..="z ../../.."
@@ -188,3 +196,8 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+# export PATH="$HOME/.local/bin/steamgrid:$PATH"
+
+# bun completions
+[ -s "/home/kodie/.bun/_bun" ] && source "/home/kodie/.bun/_bun"

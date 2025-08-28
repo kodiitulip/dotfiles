@@ -34,6 +34,7 @@ export PATH="$HOME/.bun/bin:$PATH"
 export VISUAL=/usr/bin/nvim
 export EDITOR="$VISUAL"
 export MOZ_ENABLE_WAYLAND=1
+export RUSTC_WRAPPER=sccache
 
 # ---------------------------------------------------------------------------- #
 #                                     ZINIT                                    #
@@ -49,6 +50,7 @@ zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
+zinit light olets/zsh-transient-prompt
 
 # Add in snippets
 zinit snippet OMZP::sudo
@@ -177,8 +179,6 @@ pkgsearch() {
 
 eval "$(fzf --zsh)"
 eval "$(zoxide init zsh)"
-export OMP_CONFIG=$HOME/.config/omp/rose-pine.omp.toml
-eval "$(oh-my-posh init zsh -c $OMP_CONFIG)"
 function y() {
   local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
   yazi "$@" --cwd-file="$tmp"
@@ -197,7 +197,20 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-# export PATH="$HOME/.local/bin/steamgrid:$PATH"
-
 # bun completions
 [ -s "/home/kodie/.bun/_bun" ] && source "/home/kodie/.bun/_bun"
+
+# ---------------------------------------------------------------------------- #
+#                              CUSTOM PROMPTS                                  #
+# ---------------------------------------------------------------------------- #
+
+# OHMYPOSH
+# export OMP_CONFIG=$HOME/.config/omp/rose-pine.omp.toml
+# eval "$(oh-my-posh init zsh -c $OMP_CONFIG)"
+
+# STARSHIP
+eval "$(starship init zsh)"
+
+TRANSIENT_PROMPT_PROMPT='$(/usr/bin/starship prompt --terminal-width="$COLUMNS" --keymap="${KEYMAP:-}" --status="$STARSHIP_CMD_STATUS" --pipestatus="${STARSHIP_PIPE_STATUS[*]}" --cmd-duration="${STARSHIP_DURATION:-}" --jobs="$STARSHIP_JOBS_COUNT")'
+TRANSIENT_PROMPT_TRANSIENT_PROMPT='$(/usr/bin/starship prompt --terminal-width="$COLUMNS" --keymap="${KEYMAP:-}" --status="$STARSHIP_CMD_STATUS" --pipestatus="${STARSHIP_PIPE_STATUS[*]}" --cmd-duration="${STARSHIP_DURATION:-}" --jobs="$STARSHIP_JOBS_COUNT" --profile transient)'
+TRANSIENT_PROMPT_TRANSIENT_RPROMPT='$(/usr/bin/starship prompt --terminal-width="$COLUMNS" --keymap="${KEYMAP:-}" --status="$STARSHIP_CMD_STATUS" --pipestatus="${STARSHIP_PIPE_STATUS[*]}" --cmd-duration="${STARSHIP_DURATION:-}" --jobs="$STARSHIP_JOBS_COUNT" --profile rtransient)'

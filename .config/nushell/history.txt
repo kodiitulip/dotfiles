@@ -1,0 +1,9 @@
+$env | reject config | transpose key val | each {|r| echo $"$env.($r.key) = '($r.val)'"} | str join (char nl)
+nvim ~/.config/nushell/login.nu
+z .config
+zshrc
+cd ~/.config
+cd nushell/
+nvim
+exit
+exit

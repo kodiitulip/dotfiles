@@ -7,3 +7,638 @@ cd nushell/
 nvim
 exit
 exit
+e
+nvim ~/.config/nushell
+z
+nvim ~/.config/nushell
+c
+exit
+nvim ~/.config/nushell
+exit
+nvim ~/.config/nushell
+exit
+nvim ~/.config/nushell
+$nu.config-path
+nvim ~/.config/nushell
+exit
+nvim ~/.config/nushell/config.nu
+exit
+nvim ~/.config/nushell/config.nu
+exit
+cf
+c
+nuconf
+ll
+la
+nuconf
+z
+z -
+z mods
+z Rust
+z godot
+cf
+nucong
+nuconf
+c
+nuconf
+nvim ~/.config/nushell/config.nu
+exit
+c
+nuconf
+exit
+nuconf
+/usr/bin/starship
+/usr/bin/starship prompt
+starship prompt
+c
+nuconf
+$COLUMNS
+$nu.columns
+$nu
+$in
+$env
+nuconf
+c
+source $nu.config-path
+starship prompt --terminal-width=$COLUMNS --keymap=${KEYMAP:-} --status=$STARSHIP_CMD_STATUS<\n>        --pipestatus=${STARSHIP_PIPE_STATUS[*]} --cmd-duration=${STARSHIP_DURATION:-} --jobs=$STARSHIP_JOBS_COUNT --profile transient
+starship prompt --profile transient
+nuconf
+$PROMPT
+typeset -m PROMPT
+nuconf
+c
+exit
+c
+nuconf
+reload
+source $nu.config-path
+nuconf
+source $nu.config-path
+nuconf
+source $nu.config-path
+reload
+nuconf
+source $nu.config-path
+reload
+source $nu.config-path
+nuco
+nuconf
+c
+nuconf
+c
+nuconf
+reload
+source $nu.config-path
+c
+source $nu.config-path
+c
+source $nu.config-path
+c
+source $nu.config-path
+$nu.config
+$nu
+c
+$env.COLUMNS
+$env
+c
+source $nu.config-path
+$env
+c
+$nu
+nuconf
+source $nu.config-path
+$nu
+source $nu.config-path
+c
+$nu
+source $nu.config-path
+c
+$nu
+c
+z ~/.config/kitty/
+c
+source $nu.config-path
+c
+nvim
+c
+$nu
+paru tiled
+paru aseprite
+c
+$nu.config-dir
+$nu.default-config-dir
+nuconf
+reload
+source $nu.config-path
+nuconf
+source $nu.config-path
+reload
+paru aseprite-bin
+config nu
+nuconf
+c
+confnu
+z nushell
+z ~/.config/nushell
+nvim
+c
+confnu
+c
+confzsh
+c
+conf nu
+confnu
+y
+confzsh
+z
+cwd
+confnu
+c
+nvim
+reload
+c
+exit
+c
+conf zsh
+conf nu
+confnu
+c
+y
+confnu
+y
+c
+confzsh
+cf
+paru -S aseprite
+c
+nvim ~/.config/starship.toml
+c
+cf
+c
+c
+zen
+paru -S zen-browser-bin vulkan-headers
+z cog-tec
+cf
+z nvim
+nvim
+nvim
+z nvim
+nvim
+z cog-tec
+nvim
+nvim /tmp/a.md
+rustc --version
+rustup target add wasm32-unknown-unkown
+paru wasm32
+paru -Ss wasm32
+pacman -Ss wasm32
+pacman -Ss rust
+c
+pacman -Ss rustup
+pacman -S rustup
+conf nu
+conf zsh
+conf nu
+pacman -S rustup
+rustup update stable
+rustup self upgrade-data
+c
+rustup target add wasm32-unknown-unkown
+rustup target add wasm32-unknown-unknown
+y
+confnu
+cargo install trunk
+cargo new yew-app
+z yew-app/
+z nvim
+nvim
+nvim
+z nvim
+c
+nvim
+..
+rm -rf yew-app/
+cargo generate --git https://github.com/yewstack/yew-trunk-minimal-template
+ls
+z yew-app-example/
+c
+ll
+ls
+..
+cargo generate --git https://github.com/yewstack/yew-trunk-minimal-template
+rm -rf yew-app-example/
+cargo generate --git https://github.com/yewstack/yew-trunk-minimal-template
+c
+rustup 
+rustup update cargo-generate
+rustup update --help
+c
+cargo new yew-app
+z yew-app/
+cr
+nvim
+lg
+c
+trunk serve
+cargo install trunk
+c
+$env.PATH
+$env.PATH += [/home/kodie/.cargo/bin]
+$env.PATH += /home/kodie/.cargo/bin
+$env.PATH += "/home/kodie/.cargo/bin"
+$env.PATH | append "/home/kodie/.cargo/bin"
+trunk
+$env.PATH
+$env.PATH ++= ["/home/kodie/.cargo/bin"]
+$env.PATH
+trunk
+c
+confnu
+c
+confnu
+paru tailwindcss
+paru -S tailwindcss-cli
+paru -S tailwindcss-bin
+c
+z yew-app/
+z rust
+z yew-app/
+c
+tailwindcss --help
+tailwindcss -o tailwind.css
+trunk serve
+c
+nvim
+z cog-tec
+nvim
+nvim /tmp/a.md
+c
+z projects
+ls
+y TSGrammar/
+c
+bun bt
+bun t
+bun bt
+c
+bun bt
+bun t
+c
+bun bt
+bun t
+bun bt
+bun b
+bun bt
+bun t
+bun bt
+bun t
+bun bt
+nvim
+bun bt
+bun t
+bun bt
+bun t
+bun bt
+bun t
+bun bt
+nivm
+bun bt
+c
+bun bt
+nvim
+bun bt
+bun b
+nvim
+c
+bun b
+c
+bun b
+nvim
+bun b
+nvim
+bun b
+nvim
+bun b
+nvim
+bun b
+nvim
+bun b
+nvim
+bun b
+nvim
+bun b
+nvim
+bun b
+nvim
+bun b
+nvim
+gh repo create
+c
+z nvim
+nvim
+z datapack
+y
+nvim
+z tree-sitter
+bun b
+y ~/.local/share/nvim/
+c
+nvim
+z tree-sitter
+bun b
+c
+git branch -m main master<\n>git fetch origin<\n>git branch -u origin/master master<\n>git remote set-head origin -a
+bun b
+bun t
+z nvim
+nvim
+nvim
+bun bt
+bun t
+lg
+nvim
+bun b
+bun bt
+bun t
+c
+bun t
+bun bt
+bun t
+c
+bun t
+c
+bun b
+bun t
+bun bt
+z nvim
+nvim
+nvim
+nvim
+bunb
+bun b
+nvim
+bun b
+nvim
+lg
+nvim
+z cog-tec
+lg
+nvim
+nvim /tmp/a.md
+c
+z rust
+y
+cargo generate --git https://github.com/yewstack/yew-trunk-minimal-template
+y
+z
+$env.RUSTC_WRAPPER
+sccache
+sccache --help
+c
+z nvim
+z rust
+y
+cargo init leptos-tutoriel
+z leptos-tutoriel/
+nvim
+cargo add leptos --features=csr
+nvim
+lg
+cargo install cargo-generate --locked cargo
+c
+nvim index.html
+c
+cargo install cargo-leptos leptosfmt
+c
+shutdown now
+cargo install cargo-leptos
+cargo install leptosfmt
+c
+cargo install leptosfmt
+speedtest-cli 
+c
+speedtest 
+reboot
+speedtest 
+shutdown now
+cargo install bevy_cli
+c
+z
+c
+z rust
+ls
+c
+<\n><\n><\n>
+c
+<\n><\n><\n>
+c
+echo
+c
+<\n><\n>echo<\n><\n>
+z poppy/
+c
+cargo install leptosfmt
+z cog-tec
+c
+lg
+c
+ls
+c
+z
+sudo
+sudo pacman
+c
+config nu --doc | nu-highlight | less -R
+z poppy/
+git branch
+git branch | split row "\n" | str trim | where ($it !~ '\*') | where ($it != '') | str join (char nl) | fzf --no-multi
+lg
+git branch | split row "\n" | str trim | where ($it !~ '\*') | where ($it != '') | str join (char nl) | fzf --no-multi
+fzf
+c
+ls
+els
+c
+lt
+elt
+c
+ls
+eza
+git branch
+eza | split row "\n"
+eza | split row "\n" | str trim
+git branch | split row "\n" | str trim 
+eza | split row "\n" | str trim
+eza | split row "\n" | str trim | str join (char nl) | fzf --no-multi
+c
+eza | split row "\n" | str trim | str join (char nl) | fzf --no-multi
+fzf --help
+nvim ~/.config/starship.toml
+conf zsh
+bun completions
+bun help completions
+conf zsh
+nvim ~/.bun/_bun
+c
+bun completions --nushell
+bun --help
+$default_completer
+c
+$default_completer
+$env.default_completer
+$nu.default_completer
+c
+$env.config
+c
+$env.config.completions
+cargo install --git https://github.com/TheBevyFlock/bevy_cli --tag cli-v0.1.0-alpha.1 --locked bevy_cli
+eza | split row "\n" | str trim | str join (char nl) | fzf --height 50% --ansi --no-multi --preview-window right:65%
+zsh
+conf zsh
+fzf --zsh
+c
+fzf --zsh | less -R
+paru carapace
+paru fish
+c
+carapace --help
+carapace _carapace nushell
+c
+$env.config.completions
+c
+$env.config.completions
+c
+carapace cd nushell a<\n>  | from json<\n>  | if ($in | default [] | where value =~ '^-.*ERR$' | is-empty) {$in} else {null}
+carapace cd nushell p<\n>  | from json<\n>  | if ($in | default [] | where value =~ '^-.*ERR$' | is-empty) {$in} else {null}
+carapace cd nushell 
+carapace cd nushell
+carapace --help
+carapace --run cd nushell
+carapace cd nushell
+carapace cd 
+carapace z
+c
+z poppy/
+..
+eza | split row "\n" | str trim | str join (char nl) | fzf --height 50% --ansi --no-multi --preview-window right:65%
+eza | split row "\n" | str trim | str join (char nl) | fzf --height 50%
+eza | split row "\n" | str trim | str join (char nl) | fzf --height 50% --reverse
+eza | split row "\n" | str trim | str join (char nl) | fzf --height min --reverse
+eza | split row "\n" | str trim | str join (char nl) | fzf --height 10px --reverse
+eza | split row "\n" | str trim | str join (char nl) | fzf --height 10 --reverse
+c
+eza | split row "\n" | str trim | str join (char nl) | fzf --height 10 --reverse
+eza | split row "\n" | str trim | str join (char nl) | fzf --height 10% --reverse
+c
+eza | split row "\n" | str trim | str join (char nl) | fzf --height 10% --reverse
+eza | split row "\n" | str trim | str join (char nl) | fzf --height 5 --reverse
+eza | split row "\n" | str trim | str join (char nl) | fzf --height 7 --reverse
+ls | split row "\n" | str trim | str join (char nl) | fzf --height 7 --reverse
+ls
+ls | split row
+ls | split row "\n" | str trim | str join (char nl) | fzf --height 7 --reverse
+ls | fzf --height 7 --reverse
+c
+ls | fzf --height 7 --reverse
+help commands | where category == filters
+ls | lines
+ls
+ls | list
+ls | select name
+ls | select name | lines
+ls | select name | list
+ls | select name | values
+ls | select name | values.0
+ls | select name | values
+ls | select name | get
+ls | select name | <\n>
+ls | select name | values | fzf
+ls | select name | values 
+ls | values 
+c
+ls | select name | values 
+ls | select name | values help
+values help
+values --help
+c
+ls
+ls | select name
+ls | select --help
+eza | split row "\n" | str trim | str join (char nl) | fzf --height 7 --reverse
+eza | split row "\n" | str trim | str join (char nl) | fzf --reverse
+c
+carapace git
+carapace cd
+carapace git nushell b | from json
+c
+cd (fd -H -t d -E .git -E node_modules | fzf)
+z (fd -H -t d -E .git -E node_modules | fzf)
+..
+c
+z (fd -H -t d -E .git -E node_modules | fzf --height 50% --reverse)
+fzf --nushell | less -R
+ls | get name | str join "\n" | fzf
+ls | get name | str join "\n" | fzf --reverse --height 50%
+ls | nufzf
+ls | get name | str join "\n" | fzf --reverse --height 50%
+ls | nufzf
+ls | get name | str join "\n" | fzf --reverse --height 50%
+c
+z | ls | get name | str join "\n" | fzf --reverse --height 50%
+z (ls | get name | str join "\n" | fzf --reverse --height 50%)
+ls | get name | str join "\n" | fzf --reverse --height 50%
+z
+ls | get name | str join "\n" | fzf --reverse --height 50%
+ls -d | get name | str join "\n" | fzf --reverse --height 50%
+ls --help
+ls -D | get name | str join "\n" | fzf --reverse --height 50%
+y
+ls -D | get name | str join "\n" | fzf --reverse --height 50%
+ls -D
+ls
+conf nu
+z rust
+bevy new -t 2d bevy_tutorial
+z bevy_tutorial/
+z nvim
+nvim
+nvim
+c
+cargo build
+c
+cargo build
+c
+..
+rm -rf bevy_tutorial/
+bevy new bevy-minimal
+z bevy-minimal/
+cargo build
+z nvim
+nvim
+z nvim
+conf nu
+c
+nvim
+nvim snippets/bevy.json
+nvim
+c
+y
+$env.PWD
+cd ..
+c
+cd
+$env.PWD
+y
+c
+lg
+ly
+conf nu
+$env.HOME
+c
+ly
+conf nu
+ly
+conf nu
+c
+ly

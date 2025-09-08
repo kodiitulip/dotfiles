@@ -17,7 +17,7 @@
 # options using:
 #     config nu --doc | nu-highlight | less -R
 
-$env.config.buffer_editor = "editor"
+$env.config.buffer_editor = "nvim"
 $env.config.show_banner = false
 $env.config.edit_mode = "vi"
 $env.config.cursor_shape.emacs = "inherit"
@@ -33,6 +33,114 @@ $env.FZF_DEFAULT_OPTS = '
 	--color=border:#44415a,header:#3e8fb0,gutter:#232136
 	--color=spinner:#f6c177,info:#9ccfd8
 	--color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa'
+$env.RUSTC_WRAPPER = 'sccache'
+$env.PATH ++= ['/home/kodie/.cargo/bin/']
+
+$env.PATH = ($env.PATH | split row (char esep) | prepend "/home/kodie/.config/carapace/bin")
+
+def --env get-env [name] { $env | get $name }
+def --env set-env [name, value] { load-env { $name: $value } }
+def --env unset-env [name] { hide-env $name }
+
+
+# ---------------------------------------------------------------------------- #
+#                                      GIT                                     #
+# ---------------------------------------------------------------------------- #
+
+alias gs = git status
+alias ga = git add
+alias gc = git commit -m
+alias gp = git push
+alias gb = git branch
+alias gsw = git switch
+alias gd = git diff
+alias gcl = git clone
+alias dotfiles = /usr/bin/git --git-dir=($env.HOME)/dotfiles/ --work-tree=($env.HOME)
+alias ly = /usr/bin/lazygit --git-dir=($env.HOME)/dotfiles/ --work-tree=($env.HOME)
+
+# ---------------------------------------------------------------------------- #
+#                                   SHORTCUTS                                  #
+# ---------------------------------------------------------------------------- #
+
+alias e = exit
+alias c = clear
+def cf [] {
+  ^clear
+  ^fastfetch
+}
+alias els = eza --icons --group-directories-first
+alias ell = eza -l --icons --group-directories-first
+alias elt = eza --tree --level=1 --icons --group-directories-first
+alias lg = lazygit
+alias wifi = nmtui connect
+alias clock = peaclock
+alias reload = exec nu
+alias gw = ./gradlew
+alias cr = cargo run
+alias crq = cr --quiet
+alias cb = cargo build
+alias cbq = cb --quiet
+alias ct = cargo test
+alias ctq = ct --quiet
+alias .. = z ..
+alias ... = z ../..
+alias 3.. = z ../../..
+alias 4.. = z ../../../..
+alias 5.. = z ../../../../..
+alias pacman = sudo pacman
+
+def config-completer [] {
+{
+    options: {
+      case-sensitive: false,
+      completion_algorithm: substring,
+      sort: false,
+    },
+    completions: ['nu', 'zsh']
+  }
+}
+
+def conf [shell: string@config-completer] {
+  match $shell {
+    nu => ( config nu ),
+    zsh => ( nvim ~/.zshrc ),
+  }
+}
+
+alias confnu = conf nu
+alias confzsh = conf zsh
+
+def nufzf [] {
+  $in | each {|i| $i | to json --raw} | str join (char nl) | fzf  | from json
+}
+
+# ---------------------------------------------------------------------------- #
+#                              SHELL INTEGRATIONS                              #
+# ---------------------------------------------------------------------------- #
+
+mkdir ($nu.data-dir | path join "vendor/autoload")
+zoxide init nushell | save -f ($nu.data-dir | path join "vendor/autoload/zoxide.nu")
+
+def --env y [...args] {
+	let tmp = (mktemp -t "yazi-cwd.XXXXXX")
+	yazi ...$args --cwd-file $tmp
+	let cwd = (open $tmp)
+	if $cwd != "" and $cwd != $env.PWD {
+		cd $cwd
+	}
+	rm -fp $tmp
+}
+
+# ---------------------------------------------------------------------------- #
+#                              CUSTOM PROMPTS                                  #
+# ---------------------------------------------------------------------------- #
 
 mkdir ($nu.data-dir | path join "vendor/autoload")
 starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
+
+$env.TRANSIENT_PROMPT_COMMAND = ^starship prompt --profile transient
+$env.TRANSIENT_PROMPT_INDICATOR = ""
+$env.TRANSIENT_PROMPT_INDICATOR_VI_INSERT = ": "
+$env.TRANSIENT_PROMPT_INDICATOR_VI_NORMAL = ""
+$env.TRANSIENT_PROMPT_MULTILINE_INDICATOR = "∙ "
+$env.TRANSIENT_PROMPT_COMMAND_RIGHT = ""

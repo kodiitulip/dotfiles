@@ -1,11 +1,14 @@
 "$schema" = 'https://starship.rs/config-schema.json'
-add_newline = false
+add_newline = true
+command_timeout = 1000
 format = """
-\n$username\
+$sudo\
+$username\
 $directory\
 $git_branch\
 $git_status\
 $fill\
+$bun\
 $c\
 $elixir\
 $elm\
@@ -19,7 +22,7 @@ $rust\
 $scala\
 $conda\
 $python\
-$time\n  \
+$time\n \
 $character\
 """
 palette = "rose-pine"
@@ -34,12 +37,13 @@ palette = "rose-pine"
   rose    = '#ebbcba'
 
 [profiles]
-  rtransient = """
-$time\
-"""
-  transient = """
-  $character\
-"""
+  transient = "$sudo$username$fill$time\n $character"
+
+[sudo]
+  disabled = false
+  format   = "[](fg:overlay)[ $symbol ]($style)[](fg:overlay) "
+  style    = "bg:overlay fg:iris"
+  symbol   = ""
 
 [character]
   format = "[󱞪](fg:iris) "
@@ -93,7 +97,7 @@ $time\
   format      = " [](fg:overlay)[ $time 󰴈 ]($style)[](fg:overlay)"
   style       = "bg:overlay fg:rose"
   time_format = "%I:%M%P"
-  use_12hr    = true
+  use_12hr    = false
 
 [username]
   disabled    = false
@@ -103,6 +107,12 @@ $time\
   style_user  = "bg:overlay fg:iris"
 
   # Languages
+
+[bun]
+  disabled = false
+  format   = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
+  style    = "bg:overlay fg:pine"
+  symbol   = " "
 
 [c]
   disabled = false
@@ -159,11 +169,10 @@ $time\
   symbol   = "󰆥 "
 
 [rust]
-  disabled       = false
-  format         = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
-  style          = "bg:overlay fg:pine"
-  symbol         = " "
-  version_format = "v${raw}"
+  disabled = false
+  format   = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
+  style    = "bg:overlay fg:pine"
+  symbol   = " "
 
 [scala]
   disabled = false

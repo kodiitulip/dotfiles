@@ -112,7 +112,8 @@ alias lt="eza --tree --level=1 --icons --group-directories-first"
 alias lg="lazygit"
 alias wifi="nmtui connect"
 alias clock="peaclock"
-alias zshrc="$EDITOR $HOME/.zshrc"
+alias confzsh="$EDITOR $HOME/.zshrc"
+alias confnu="z $HOME/.config/nushell && $EDITOR ./config.nu"
 alias reload="source $HOME/.zshrc"
 alias gw="./gradlew"
 alias cr="cargo run"
@@ -213,4 +214,3 @@ eval "$(starship init zsh)"
 
 TRANSIENT_PROMPT_PROMPT='$(/usr/bin/starship prompt --terminal-width="$COLUMNS" --keymap="${KEYMAP:-}" --status="$STARSHIP_CMD_STATUS" --pipestatus="${STARSHIP_PIPE_STATUS[*]}" --cmd-duration="${STARSHIP_DURATION:-}" --jobs="$STARSHIP_JOBS_COUNT")'
 TRANSIENT_PROMPT_TRANSIENT_PROMPT='$(/usr/bin/starship prompt --terminal-width="$COLUMNS" --keymap="${KEYMAP:-}" --status="$STARSHIP_CMD_STATUS" --pipestatus="${STARSHIP_PIPE_STATUS[*]}" --cmd-duration="${STARSHIP_DURATION:-}" --jobs="$STARSHIP_JOBS_COUNT" --profile transient)'
-TRANSIENT_PROMPT_TRANSIENT_RPROMPT='$(/usr/bin/starship prompt --terminal-width="$COLUMNS" --keymap="${KEYMAP:-}" --status="$STARSHIP_CMD_STATUS" --pipestatus="${STARSHIP_PIPE_STATUS[*]}" --cmd-duration="${STARSHIP_DURATION:-}" --jobs="$STARSHIP_JOBS_COUNT" --profile rtransient)'

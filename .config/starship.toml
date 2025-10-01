@@ -37,7 +37,7 @@ palette = "rose-pine"
   rose    = '#ebbcba'
 
 [profiles]
-  transient = "$sudo$username$fill$time\n $character"
+  transient = "[](fg:overlay)[ 󰧱 ](bg:overlay fg:iris)[](fg:overlay) $fill [](fg:overlay)[ 󰴈 ](bg:overlay fg:rose)[](fg:overlay)\n $character"
 
 [sudo]
   disabled = false
@@ -181,10 +181,11 @@ palette = "rose-pine"
   symbol   = " "
 
 [python]
-  disabled = false
-  format   = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
-  style    = "bg:overlay fg:pine"
-  symbol   = ' '
+  disabled       = false
+  format         = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
+  style          = "bg:overlay fg:pine"
+  symbol         = ' '
+  version_format = "v${major}.${minor}"
 
 [conda]
   disabled = false

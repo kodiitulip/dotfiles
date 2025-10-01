@@ -642,3 +642,702 @@ ly
 conf nu
 c
 ly
+z python
+uv init darkest-gen
+z darkest-gen/
+uv add tomlkit
+nvim
+..
+rm -rf darkest-gen/
+uv help init
+uv init --app --package darkest-gen
+z darkest-gen/
+uv add tomlkit
+uv run -m darkest_gen
+uv run darkest_gen
+uv build darkest_gen
+uv run darkest-gen
+uv run -m darkest-gen
+uv run -m darkest_gen
+uv run darkest-gen
+nvim
+shutdown now
+z darkest-gen
+y
+uv add platformdirs
+c
+uv run darkest-gen
+z .local
+ls
+z share/
+ls
+c
+ls | less
+c
+z share/
+..
+z ./darkest-gen
+ls
+z python
+uv add typer
+uv run -m darkest_gen
+uv run darkest-gen
+uv run -m darkest-gen
+c
+uv run darkest-gen
+uv build darkest-gen
+uv run darkest-gen
+uv run darkest_gen
+uv run darkest-gen
+nvim
+uv run darkest-gen
+uv run darkest-gen main
+uv run darkest-gen 
+c
+uv run darkest-gen 
+c
+uv run darkest-gen 
+c
+uv run darkest-gen 
+y
+..
+c
+c
+uv run darkest-gen 
+c
+uv run darkest-gen 
+c
+uv run darkest-gen 
+c
+uv run darkest-gen 
+c
+uv run darkest-gen 
+c
+uv run darkest-gen 
+c
+uv run darkest-gen 
+c
+gh repo create
+c
+shutdown now
+flatpak
+flatpak 
+flatpak --help
+flatpak update Sober
+flatpak update 
+paru vencord
+c
+z darkest-gen
+y
+curl -O https://vikingf1le.us.to/d/DFP53RVKqN/Hollow_Knight_LINUX.7z
+curl -h
+curl -h all
+c
+7z
+c
+nvim
+c
+curl -OL https://vikingf1le.us.to/d/DFP53RVKqN/Hollow_Knight_LINUX.7z
+7z x Hollow_Knight_LINUX.7z -ohollow-knight-linux
+y
+lg
+y
+steamgrid
+./steamgrid
+./steamgrid -h
+./steamgrid -appids 367520
+y
+./steamgrid -nonsteamonly
+shutdown now
+grub-install -h
+grub-install --help
+paru
+paru -R oh-my-posh tailwindcss-bin
+z steamgrid
+c
+z steamapps
+ls
+y
+c
+./steamgrid -nonsteamonly
+reboot
+z steamgrid
+./steamgrid -nonsteamonly
+./steamgrid -appids 3538318268
+btop
+./steamgrid -appids 3538318268
+controloid
+z steamgrid
+..
+z controlloid-server/
+ls
+y
+c
+lg
+y
+lg
+gh 
+c
+gh repo create
+c
+y
+..
+touch export/.gdignore
+lg
+y
+lg
+shutdown now
+z darkest-gen
+ls
+uv run -m rich.tree
+uv run darkest-gen 
+uv run darkest-gen generate
+uv run darkest-gen --show-completion
+c
+nvim
+paru revanced
+y
+curl -OL https://pnode8.datanodes.to:8443/d/rompc2fckae5w4x3tlzh24gowquivdy3i5zf2rpdrdeqn2jtp77s3jy5e5ohukjlf7w2zfet/Camp-Buddy.zip
+y
+z
+paru -S godot
+paru godot
+paru -R godot
+y
+git clone https://github.com/godotengine/godot-syntax-themes.git .
+z text_editor
+ls
+cp Catppuccin-Mocha.tet RosePine.tet
+nvim RosePine.tet
+z text_editor
+..
+z text_editor
+lg
+y
+gh repo create
+c
+z game-from-class
+lg
+gh help auth
+z mods
+git clone https://github.com/kodiitulip/FossilsArcheologyRevival-CommonTags.git
+z FossilsArcheologyRevival-CommonTags/
+lg
+..
+z datapacks/
+ls
+shutdown now
+z darkest-gen
+uv sync
+uv run main.py
+nvim
+z godot
+z game-from-class/
+lg
+z /home/kodie/.local/share/Godot-Manager/versions
+ls
+z 4.5-stable/
+ls
+z editor_data/
+y
+c
+lg
+z
+z godot
+y
+z frozen-inferno/
+c
+lg
+ls
+z ~/.config/godot/
+y
+nvim
+c
+z
+z frozen-inferno/
+z frozen-inferno
+c
+ls
+sed -i 's/config\/version="[^"]*"/config\/version="${{ env.version }}"/' ./project.godot
+cat project.godot
+c
+sed -i 's/config\/version="[^"]*"/config\/version="v0.0.2"/' ./project.godot
+sed -i 's/config\/version="[^"]*"/config\/version="v0.0.1"/' ./project.godot
+y
+mkdir -p tmp/binary tmp/app/frozen-inferno
+mkdir --help
+mkdir tmp/binary tmp/app/frozen-inferno
+ls
+z tmp/
+ls
+y
+c
+z
+c
+z editor_data/
+..
+c
+ls
+./Godot_v4.5-stable_linux.x86_64 --help
+c
+./Godot_v4.5-stable_linux.x86_64 --help | less -R
+c
+nvim README.md
+c
+lg
+gh repo create
+c
+nvim README.md
+shutdown now
+z darkest-gen
+nvim
+z frozen-inferno
+nvim
+lg
+shutdown now
+z frozen-inferno
+c
+ls
+ls | name
+ls | select name
+ls | select name | to text 
+ls | select name | to text | fzf
+ls | select name | to text | str replace 
+ls | select name | to text | str replace -r '^name: ' ''
+ls | select name | to text | str replace -rm '^name: ' ''
+ls | select name | to text | str replace -m '^name: ' ''
+ls | select name | to text | str replace -r 'name: ' ''
+ls | select name | to text | str join "\n" | str replace -r 'name: ' ''
+ls | select name | to text | str join "\n"
+ls | select name | to text | str join ""
+ls | select name | to text | split row ','
+ls | select name 
+ls | select name | to csv 
+ls | select name | to csv | split row
+ls | select name | to csv | split row ','
+ls | select name | to csv | str replace '^name\n' ''
+ls | select name | to csv | str replace '^name' ''
+ls | select name | to csv | str replace -r '^name' ''
+ls | select name | to csv | str replace -r '^name\n' ''
+ls | select name | to csv | str replace -r '^name\n' '' | fzf
+ls | select name | to csv | str replace -r '^name\n' '' | fzf --height 50%
+ls | select name | to csv | str replace -r '^name\n' '' | fzf --height 50% --reverse
+c
+__zoxide_z
+__zoxide_z frozen-inferno
+zoxide query --list --exclude $env.PWD -- ass | lines
+zoxide query --list --exclude $env.PWD -- ass | lines | fzf
+c
+zoxide query --list --exclude $env.PWD -- ass | lines | to csv | fzf
+zoxide query --list --exclude $env.PWD -- ass 
+zoxide query --list --exclude $env.PWD -- ass | fzf
+c
+config nu
+c
+zoxide query --list --exclude $env.PWD -- nu | lines
+zoxide query --list --exclude $env.PWD -- a | lines
+c
+zoxide query --list --exclude $env.PWD -- ass | lines
+zoxide query --list --exclude $env.PWD -- nvim | lines
+confnu
+zo addons/
+c
+confnu
+y
+dolphin .
+z editor_data/
+...
+./Godot_v4.5-stable_linux.x86_64 --help | less -R
+./Godot_v4.5-stable_linux.x86_64 --import ~/Projects/Godot/frozen-inferno/project.godot --headless --export-release "web" ./export/web/frozen-inferno-web.zip
+./Godot_v4.5-stable_linux.x86_64 --import ~/Projects/Godot/frozen-inferno/project.godot --headless --export-release "web" frozen-inferno-web.zip
+ls
+y
+z Dowload
+z Dowloads
+z Downloads
+c
+z frozen-inferno-web/
+python -m http.server 8000
+c
+nvim README.md
+shutdown now
+paru wine
+protontricks -l
+z frozen-inferno
+ls
+c
+z
+y
+nvim LICENSE
+z frozen-inferno
+nvim README.md
+z frozen-inferno
+nvim 
+shutdown now
+z frozen-inferno
+nvim
+z frozen-inferno
+nvim
+y
+nvim
+..
+z frozen-inferno
+nvim
+lg
+shutdown now
+z frozen-inferno
+nvim
+lg
+nvim README.md
+z frozen-inferno
+cp README.md ../README-FROZEN-INFERNO.md
+..
+nvim README-FROZEN-INFERNO.md
+shutdown now
+z nvim
+z minecraft
+z instances
+z
+ls | grep taplo
+ls | grep .taplo
+ls | grep .taplo.toml
+ls
+ls -h
+ls -as ~
+ls -as ~ | where name ~= taplo
+ls -as ~ | where name =~ taplo
+ls -as ~/.config | where name =~ taplo
+confnu
+conf nu
+conf zsh
+cp ~/.config/.taplo.toml ~/instances/crop-and-kettle/minecraft/config/.taplo.toml
+y
+nvim
+c
+$env.HOME
+conf nu
+c
+shutdown now
+grub-mkconfig -V
+c
+z temp
+z /tmp/
+ls
+c
+z
+mkdir minegrub
+z minegrub
+git clone https://github.com/Lxtharia/minegrub-world-sel-theme.git
+z minegrub-world-sel-theme/
+sudo cp -ruv minegrub-world-selection/ /boot/grub/themes/
+c
+..
+git clone https://github.com/Lxtharia/minegrub-theme.git
+z minegrub-theme/
+sudo cp -ruv minegrub/ /boot/grub/themes/
+c
+..
+z minegrub-world-sel-theme/
+ls
+z assets/background-scaled/
+ls
+cp -ruv background-1366x768.png ../../minegrub-world-selection/background.png
+...
+sudo cp -ruv minegrub-world-selection/ /boot/grub/themes/
+..
+z minegrub-theme/
+c
+./choose_background.sh
+cp -ruv minegrub/ /boot/grub/themes/
+sudo cp -ruv minegrub/ /boot/grub/themes/
+c
+..
+sudoedit /etc/default/grub
+git clone https://github.com/Lxtharia/minegrub-double-menu.git
+z minegrub-double-menu/
+sudo cp mainmenu.cfg /boot/grub/
+sudo cp 05_twomenus /etc/grub.d/
+chmod +x /etc/grub.d/05_twomenus
+sudo chmod +x /etc/grub.d/05_twomenus
+c
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+sudo grub-editenv - set config_file=mainmenu.cfg
+reboot
+z minegrub/
+mkdir ~/.local/share/plasma/look-and-feel/minecraftworldloading-kde-splash && git clone https://github.com/Samsu-F/minecraftworldloading-kde-splash ~/.local/share/plasma/
+mkdir ~/.local/share/plasma/look-and-feel/minecraftworldloading-kde-splash; git clone https://github.com/Samsu-F/minecraftworldloading-kde-splash ~/.local/share/plasma/
+mkdir ~/.local/share/plasma/look-and-feel/minecraftworldloading-kde-splash/; git clone https://github.com/Samsu-F/minecraftworldloading-kde-splash ~/.local/share/plasma/
+git clone https://github.com/Samsu-F/minecraftworldloading-kde-splash ~/.local/share/plasma/look-and-feel/minecraftworldloading-kde-splash
+c
+paru -Ss qt5-quickcontrols2
+paru -Ss layer-shell-qy5
+paru -Ss layer-shell-qt5
+paru -Ss layer-shell-qt
+c
+git clone https://github.com/Davi-S/sddm-theme-minesddm.git
+z sddm-theme-minesddm/
+sudo cp -ruv minesddm/ /usr/share/sddm/themes/
+c
+sudoedit /etc/sddm.conf
+sudoedit /etc/sddm.conf.d/kde_settings.conf
+paru plymouth
+c
+reboot
+ls /boot/grub/themes/
+sudoedit /etc/default/grub
+c
+reboot
+sudo grub-editenv - unset config_file
+reboot
+sudoedit /boot/grub/mainmenu.cfg
+sudo grub-editenv - set config_file=mainmenu.cfg
+reboot
+paru quickshell
+c
+git clone https://github.com/caelestia-dots/caelestia.git ~/.local/share/caelestia
+~/.local/share/caelestia/install.fish
+cp ~/.config ~/.config.bak
+cp -r ~/.config ~/.config.bak
+~/.local/share/caelestia/install.fish
+~/.local/share/caelestia/install.fish --paru --zen --discord
+~/.local/share/caelestia/install.fish
+paru -S hyprland xdg-desktop-portal-hyprland xdg-desktop-portal-gtk hyprpicker wl-clipboard cliphist inotify-tools app2unit wireplumber trash-cli foot fastfetch jq adw-gtk-theme papirus-icon-theme qt5ct-kde qt6ct-kde ttf-jetbrains-mono-nerd
+paru app2unit
+~/.local/share/caelestia/install.fish -h
+~/.local/share/caelestia/install.fish --aur-helper=paru --discord --noconfirm
+paru caelestia-meta
+c
+~/.local/share/caelestia/install.fish --aur-helper=paru --discord --noconfirm
+paru
+c
+paru godot
+godot
+c
+conf nu
+c
+godot4
+c
+rustc --version
+clang -v
+z godot
+mkdir rust-godot
+y
+lg
+y
+z rust/
+cargo init .
+ls
+y
+cargo init --lib .
+y
+touch HelloWorld.gdextension
+y
+cargo new "{rust}" --lib
+cargo new rust --name "godot-rust-test" --lib
+cargo add godot
+y
+nvim
+cargo add godot
+z rust/
+cargo build
+nvim
+shutdown now
+ls /boot/grub/themes/
+sudo grub-editenv - unset config_file
+sudoedit /etc/default/grub
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+reboot
+mkdir flint-and-hits
+y
+z nvim
+nvim
+nvim
+uv init .
+uv add beet
+source .venv/bin/activate
+c
+source .venv/bin/activate.nu
+overlay use .venv/bin/activate.nu
+c
+cc
+c
+z config
+c
+$env.MINECRAFT_PATH="/home/kodie/.local/share/PrismLauncher/instances/crop-and-kettle/minecraft" beet build
+$env.MINECRAFT_PATH = "/home/kodie/.local/share/PrismLauncher/instances/crop-and-kettle/minecraft" beet build
+$env.MINECRAFT_PATH = "/home/kodie/.local/share/PrismLauncher/instances/crop-and-kettle/minecraft"; beet build
+uv add bolt
+c
+$env.MINECRAFT_PATH = "/home/kodie/.local/share/PrismLauncher/instances/crop-and-kettle/minecraft"; beet build
+$env.MINECRAFT_PATH = "/home/kodie/.local/share/PrismLauncher/instances/crop-and-kettle/minecraft"; beet -h
+beet build
+nvim
+z tree-sitter
+nvim starship.toml
+c
+nvim
+z nvim
+nvim
+..
+rm -rf tree-sitter-mcfunction/
+git clone https://github.com/kodiitulip/tree-sitter-mcfunction-lang
+z tree-sitter-mcfunction-lang/
+bun i
+tree-sitter build
+tree-sitter
+nvim
+z rust
+c
+git clone https://github.com/kodiitulip/tower-lsp-mcfunction
+z tower-lsp-mcfunction/
+c
+nvim
+c
+..
+y
+node -v
+c
+pnpm
+c
+z nvim
+cargo build
+nvim
+c
+..
+rustup
+rustup show
+c
+rustup show
+rustup 
+rustup completions
+rustup completions nu
+rustup completions zsh
+c
+rustup completions zsh | less -R
+c
+z tower-lsp-mcfunction/
+cargo build
+rustup 
+rustup run
+rustup run 1.88 cargo build
+rustup show
+rustup which cargo
+rustup install
+rustup component
+rustup component add 
+rustup component add --help
+rustup component add cargo
+c
+paru -S rustup
+rustup self upgrade-data
+cargo build
+..
+z roguelike/
+z rust
+cargo build
+cargo new tower-lsp-mcfunction
+rm -rf tower-lsp-mcfunction/
+cargo new tower-lsp-mcfunction
+z tower-lsp-mcfunction/
+nvim
+nvim
+z nvimi
+z nvim
+nvim
+lg
+shutdown now
+z godot
+nvim README.md
+uv run markdown-to-html.py
+uv run markdown-to-html.py -h
+uv run markdown-to-html.py -o index.html
+uv run markdown-to-html.py -o ./index.html
+uv run markdown-to-html.py -o index.html
+uv run markdown-to-html.py -h
+uv run markdown-to-html.py README.md
+paru libreoffice
+y /home/kodie/.local/share/Godot-Manager/cache
+godot -h
+c
+y
+y
+gh repo create
+c
+y
+lg
+y
+z godot
+z
+z godot
+z windy-seas/
+c
+conf nu
+c
+lg
+y
+nvim
+shutdown now
+y
+sudo makepkg =h
+makepkg -h
+makepkg
+makepkg -i
+paru -S caelestia-cli caelestia-shell qt5ct-kde qt6ct-kde
+paru ttf-material-symbols
+paru -S caelestia-cli caelestia-shell qt5ct-kde qt6ct-kde
+paru gpu-screen-recorder
+z
+z /run/media/kodie/Ventoy/
+ls
+curl -OL https://cdn77.cachyos.org/ISO/desktop/250828/cachyos-desktop-linux-250828.iso
+ls
+curl -OL https://channels.nixos.org/nixos-25.05/latest-nixos-graphical-x86_64-linux.iso
+paru -S caelestia-cli caelestia-shell qt5ct-kde qt6ct-kde
+makepkg -i
+paru -S qt5ct-kde
+paru qqc2-desktop-style5
+z
+c
+z godot
+z windy-seas/
+lg
+c
+nvim ~/.config/starship.toml
+c
+nvim ~/.config/starship.toml
+c
+nvim ~/.config/starship.toml
+c
+nvim ~/.config/starship.toml
+c
+nvim ~/.config/starship.toml
+c
+nvim ~/.config/starship.toml
+c
+conf nu
+c
+z
+paru obsidian
+c
+y
+c
+z
+c
+z godot
+z windy-seas/
+nvim
+c
+lg
+c
+lg
+shutdown now
+z windy
+ls
+godot --headless --import project.godot
+godot -h
+z nvim
+nvim
+godot --headless --import project.godot --lsp-port 6005
+xdg-open project.godot
+nvim
+lg

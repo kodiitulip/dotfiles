@@ -35,6 +35,7 @@ export VISUAL=/usr/bin/nvim
 export EDITOR="$VISUAL"
 export MOZ_ENABLE_WAYLAND=1
 export RUSTC_WRAPPER=sccache
+export TAPLO_CONFIG="$HOME/.config/.taplo.toml"
 
 # ---------------------------------------------------------------------------- #
 #                                     ZINIT                                    #

@@ -37,10 +37,15 @@ $env.RUSTC_WRAPPER = 'sccache'
 $env.PATH ++= ['/home/kodie/.cargo/bin/']
 
 $env.PATH = ($env.PATH | split row (char esep) | prepend "/home/kodie/.config/carapace/bin")
+$env.TAPLO_CONFIG = ($env.HOME + "/.config/.taplo.toml")
 
 def --env get-env [name] { $env | get $name }
 def --env set-env [name, value] { load-env { $name: $value } }
 def --env unset-env [name] { hide-env $name }
+
+def --env godot4 [...rest] {
+  godot ...$rest
+}
 
 
 # ---------------------------------------------------------------------------- #
@@ -89,8 +94,29 @@ alias 4.. = z ../../../..
 alias 5.. = z ../../../../..
 alias pacman = sudo pacman
 
+# ---------------------------------------------------------------------------- #
+#                              SHELL INTEGRATIONS                              #
+# ---------------------------------------------------------------------------- #
+
+mkdir ($nu.data-dir | path join "vendor/autoload")
+zoxide init nushell | save -f ($nu.data-dir | path join "vendor/autoload/zoxide.nu")
+
+def --env y [...args] {
+	let tmp = (mktemp -t "yazi-cwd.XXXXXX")
+	yazi ...$args --cwd-file $tmp
+	let cwd = (open $tmp)
+	if $cwd != "" and $cwd != $env.PWD {
+		cd $cwd
+	}
+	rm -fp $tmp
+}
+
+# ---------------------------------------------------------------------------- #
+#                                   COMPLETERS                                 #
+# ---------------------------------------------------------------------------- #
+
 def config-completer [] {
-{
+  {
     options: {
       case-sensitive: false,
       completion_algorithm: substring,
@@ -114,21 +140,20 @@ def nufzf [] {
   $in | each {|i| $i | to json --raw} | str join (char nl) | fzf  | from json
 }
 
-# ---------------------------------------------------------------------------- #
-#                              SHELL INTEGRATIONS                              #
-# ---------------------------------------------------------------------------- #
+def "nu-complete-zoxide-path" [context: string] {
+  let parts = $context | str trim --left | split row " " | skip 1 | each { str downcase }
+  {
+    options: {
+      sort: false,
+      completion_algorithm: substring,
+      case_sensitive: false,
+    },
+    completions: (^zoxide query --list --exclude $env.PWD -- ...$parts | lines),
+  }
+}
 
-mkdir ($nu.data-dir | path join "vendor/autoload")
-zoxide init nushell | save -f ($nu.data-dir | path join "vendor/autoload/zoxide.nu")
-
-def --env y [...args] {
-	let tmp = (mktemp -t "yazi-cwd.XXXXXX")
-	yazi ...$args --cwd-file $tmp
-	let cwd = (open $tmp)
-	if $cwd != "" and $cwd != $env.PWD {
-		cd $cwd
-	}
-	rm -fp $tmp
+def --env --wrapped z [...rest: string@"nu-complete-zoxide-path"] {
+  __zoxide_z ...$rest
 }
 
 # ---------------------------------------------------------------------------- #

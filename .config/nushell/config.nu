@@ -100,6 +100,7 @@ alias pacman = sudo pacman
 
 mkdir ($nu.data-dir | path join "vendor/autoload")
 zoxide init nushell | save -f ($nu.data-dir | path join "vendor/autoload/zoxide.nu")
+tree-sitter complete --shell nushell | save -f ($nu.data-dir | path join "vendor/autoload/tree-sitter-completions.nu")
 
 def --env y [...args] {
 	let tmp = (mktemp -t "yazi-cwd.XXXXXX")
@@ -122,7 +123,7 @@ def config-completer [] {
       completion_algorithm: substring,
       sort: false,
     },
-    completions: ['nu', 'zsh']
+    completions: ['nu', 'zsh', 'starship']
   }
 }
 
@@ -130,6 +131,7 @@ def conf [shell: string@config-completer] {
   match $shell {
     nu => ( config nu ),
     zsh => ( nvim ~/.zshrc ),
+    starship => ( nvim ~/.config/starship.toml ),
   }
 }
 

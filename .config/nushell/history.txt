@@ -1341,3 +1341,53 @@ godot --headless --import project.godot --lsp-port 6005
 xdg-open project.godot
 nvim
 lg
+ly
+paru gd
+paru gdscript
+z nvim
+z -
+nvim
+c
+lg
+nvim SGGD.md
+shutdown now
+z tree
+y
+z
+z TS
+c
+tree-sitter 
+tree-sitter complete
+tree-sitter complete --shell nushel
+tree-sitter complete --shell nushell
+config nu
+c
+tree-sitter init 
+c
+y
+c
+bun i
+tree-sitter generate 
+tree-sitter build 
+bun b
+c
+tree-sitter highlight pyproject.toml
+nvim
+shutdown now
+z godot
+ls
+rm README-FROZEN-INFERNO.md
+ls
+c
+ls
+c
+ls
+c
+z windy-seas/
+lg
+..
+conf nu
+c
+conf starship
+c
+ly
